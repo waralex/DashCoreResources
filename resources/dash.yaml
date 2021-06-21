@@ -1,5 +1,5 @@
 version: 1.19.0
-build: 2
+build: 3
 embedded_components:
   - dash_core_components
   - dash_html_components
