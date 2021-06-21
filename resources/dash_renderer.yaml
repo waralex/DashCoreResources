@@ -1,4 +1,4 @@
-version: "1.9.0"
+version: "1.9.1"
 js_dist_dependencies:
   namespace: "dash_renderer"
   prod:
@@ -23,7 +23,7 @@ deps:
   - namespace: "dash_renderer"
     resources:
       - type: js
-        external_url: "https://unpkg.com/dash-renderer@1.9.0/dash_renderer/dash_renderer.min.js"
+        external_url: "https://unpkg.com/dash-renderer@1.9.1/dash_renderer/dash_renderer.min.js"
         dev_package_path: "dash_renderer.dev.js"
         relative_package_path: "dash_renderer.min.js"
       - type: js

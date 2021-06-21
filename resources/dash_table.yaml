@@ -1,37 +1,37 @@
-version: "4.11.2"
+version: "4.11.3"
 name: "dash_table"
 deps:
   - namespace: "dash_table"
     resources:
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-table@4.11.2/dash_table/async-export.js"
+        external_url: "https://unpkg.com/dash-table@4.11.3/dash_table/async-export.js"
         relative_package_path: "async-export.js"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-table@4.11.2/dash_table/async-table.js"
+        external_url: "https://unpkg.com/dash-table@4.11.3/dash_table/async-table.js"
         relative_package_path: "async-table.js"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-table@4.11.2/dash_table/async-highlight.js"
+        external_url: "https://unpkg.com/dash-table@4.11.3/dash_table/async-highlight.js"
         relative_package_path: "async-highlight.js"
       - type: js
-        external_url: "https://unpkg.com/dash-table@4.11.2/dash_table/async-export.js.map"
+        external_url: "https://unpkg.com/dash-table@4.11.3/dash_table/async-export.js.map"
         dynamic: true
         relative_package_path: "async-export.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-table@4.11.2/dash_table/async-table.js.map"
+        external_url: "https://unpkg.com/dash-table@4.11.3/dash_table/async-table.js.map"
         dynamic: true
         relative_package_path: "async-table.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-table@4.11.2/dash_table/async-highlight.js.map"
+        external_url: "https://unpkg.com/dash-table@4.11.3/dash_table/async-highlight.js.map"
         dynamic: true
         relative_package_path: "async-highlight.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-table@4.11.2/dash_table/bundle.js"
+        external_url: "https://unpkg.com/dash-table@4.11.3/dash_table/bundle.js"
         relative_package_path: "bundle.js"
       - type: js
-        external_url: "https://unpkg.com/dash-table@4.11.2/dash_table/bundle.js.map"
+        external_url: "https://unpkg.com/dash-table@4.11.3/dash_table/bundle.js.map"
         dynamic: true
         relative_package_path: "bundle.js.map"
 prefix: "dash"
@@ -130,7 +130,7 @@ components:
       `row_id` is only returned if the data rows have an `id` key.
       - `cell_selectable` (Bool; optional): If True (default), then it is possible to click and navigate
       table cells.
-      - `column_selectable` ('single', 'multi', false; optional): If `single`, then the uer can select a single column or group
+      - `column_selectable` ('single', 'multi', false; optional): If `single`, then the user can select a single column or group
       of merged columns via the radio button that will appear in the
       header rows.
       If `multi`, then the user can select multiple columns or groups
@@ -214,53 +214,35 @@ components:
       If the `selectable` input appears on a merged columns, then clicking on that input
       will select *all* of the merged columns associated with it.
       The table-level prop `column_selectable` is used to determine the type of column
-      selection to use.   - `format` (lists containing elements locale, nully, prefix, specifier   - `locale` (lists containing elements symbol, decimal, group, grouping, numerals, percent, separate_4digits   - `symbol` (Array of Strings; optional)   - `decimal` (String; optional)   - `group` (String; optional)   - `grouping` (Array of s; optional)   - `numerals` (Array of Strings; optional)   - `percent` (String; optional)   - `separate_4digits` (Bool; optional); optional)   - `nully` (Bool | Real | String | Dict | Array; optional)   - `prefix` (optional)   - `specifier` (String; optional); optional): The formatting applied to the column's data.
+      selection to use.   - `format` (optional):The formatting applied to the column's data.
       This prop is derived from the [d3-format](https://github.com/d3/d3-format) library specification. Apart from
-      being structured slightly differently (under a single prop), the usage
-      is the same.
-      'locale': represents localization specific formatting information.
-       When left unspecified, will use the default value provided by d3-format.
-       The keys are as follows:
-       'symbol': (default: ['$', '']) a list of two strings representing the
+      being structured slightly differently (under a single prop), the usage is the same.
+      See also dash_table.FormatTemplate.  It contains helper functions for typical number formats.. format has the following type: lists containing elements locale, nully, prefix, specifier   - `locale` (optional):Represents localization specific formatting information.
+      When left unspecified, will use the default value provided by d3-format.. locale has the following type: lists containing elements symbol, decimal, group, grouping, numerals, percent, separate_4digits   - `symbol` (Array of Strings; optional): (default: ['$', '']).  A list of two strings representing the
        prefix and suffix symbols. Typically used for currency, and implemented using d3's
-       currency format, but you can use this for other symbols such as measurement units;
-       'decimal': (default: '.') the string used for the decimal separator;
-       'group': (default: ',') the string used for the groups separator;
-       'grouping': (default: [3]) a list of integers representing the grouping pattern.
-       'numerals': a list of ten strings used as replacements for numbers 0-9;
-       'percent': (default: '%') the string used for the percentage symbol;
-       'separate_4digits': (default: True) separate integers with 4-digits or less.
-      'nully': a value that will be used in place of the nully value during formatting.
-        If the value type matches the column type, it will be formatted normally.
-      'prefix': a number representing the SI unit to use during formatting.
-        See `dash_table.Format.Prefix` enumeration for the list of valid values
-      'specifier': (default: '') represents the rules to apply when formatting the number.
-      dash_table.FormatTemplate contains helper functions to rapidly use certain
-      typical number formats.   - `id` (String; required): The `id` of the column.
-      The column `id` is used to match cells in data
-      with particular columns.
-      The `id` is not visible in the table.   - `name` (String | Array of Strings; required): The `name` of the column,
-      as it appears in the column header.
+       currency format, but you can use this for other symbols such as measurement units   - `decimal` (String; optional): (default: '.').  The string used for the decimal separator   - `group` (String; optional): (default: ',').  The string used for the groups separator   - `grouping` (Array of s; optional): (default: [3]).  A list of integers representing the grouping pattern. The default is
+      3 for thousands.   - `numerals` (Array of Strings; optional): A list of ten strings used as replacements for numbers 0-9   - `percent` (String; optional): (default: '%').  The string used for the percentage symbol   - `separate_4digits` (Bool; optional): (default: True). Separates integers with 4-digits or less   - `nully` (Bool | Real | String | Dict | Array; optional): A value that will be used in place of the nully value during formatting.
+        If the value type matches the column type, it will be formatted normally.   - `prefix` (optional): A number representing the SI unit to use during formatting.
+        See `dash_table.Format.Prefix` enumeration for the list of valid values   - `specifier` (String; optional): (default: '').  Represents the d3 rules to apply when formatting the number.   - `id` (String; required): The `id` of the column.
+      The column `id` is used to match cells in data with particular columns.
+      The `id` is not visible in the table.   - `name` (String | Array of Strings; required): The `name` of the column, as it appears in the column header.
       If `name` is a list of strings, then the columns
-      will render with multiple headers rows.   - `presentation` ('input', 'dropdown', 'markdown'; optional): The `presentation` to use to display the value.
-      Defaults to 'input' for ['datetime', 'numeric', 'text', 'any'].   - `on_change` (lists containing elements action, failure   - `action` ('coerce', 'none', 'validate'; optional)   - `failure` ('accept', 'default', 'reject'; optional); optional): The `on_change` behavior of the column for user-initiated modifications.
-      'action' (default 'coerce'):
-       none: do not validate data;
-       coerce: check if the data corresponds to the destination type and
+      will render with multiple headers rows.   - `presentation` ('input', 'dropdown', 'markdown'; optional): The `presentation` to use to display data. Markdown can be used on
+      columns with type 'text'.  See 'dropdown' for more info.
+      Defaults to 'input' for ['datetime', 'numeric', 'text', 'any'].   - `on_change` (optional):The `on_change` behavior of the column for user-initiated modifications.. on_change has the following type: lists containing elements action, failure   - `action` ('coerce', 'none', 'validate'; optional): (default 'coerce'):  'none': do not validate data;
+       'coerce': check if the data corresponds to the destination type and
        attempts to coerce it into the destination type if not;
-       validate: check if the data corresponds to the destination type (no coercion).
-      'failure' (default 'reject'): what to do with the value if the action fails:
-       accept: use the invalid value;
-       default: replace the provided value with `validation.default`;
-       reject: do not modify the existing value.   - `sort_as_null` (Array of String | Bools; optional): An array of string, number and boolean values that are treated as `null`
+       'validate': check if the data corresponds to the destination type (no coercion).   - `failure` ('accept', 'default', 'reject'; optional): (default 'reject'):  What to do with the value if the action fails.
+       'accept': use the invalid value;
+       'default': replace the provided value with `validation.default`;
+       'reject': do not modify the existing value.   - `sort_as_null` (Array of String | Bools; optional): An array of string, number and boolean values that are treated as `null`
       (i.e. ignored and always displayed last) when sorting.
-      This value overrides the table-level `sort_as_null`.   - `validation` (lists containing elements allow_null, default, allow_YY   - `allow_null` (Bool; optional)   - `default` (Bool | Real | String | Dict | Array; optional)   - `allow_YY` (Bool; optional); optional): The `validation` options.
-      'allow_null': Allow the use of nully values. (undefined, null, NaN) (default: false)
-      'default': The default value to apply with on_change.failure = 'default'. (default: null)
-      'allow_YY': `datetime` columns only, allow 2-digit years (default: false).
-        If true, we interpret years as ranging from now-70 to now+29 - in 2019
+      This value overrides the table-level `sort_as_null`.   - `validation` (optional):The `validation` options for user input processing that can accept, reject or apply a
+      default value.. validation has the following type: lists containing elements allow_null, default, allow_YY   - `allow_null` (Bool; optional): Allow the use of nully values. (undefined, null, NaN) (default: False)   - `default` (Bool | Real | String | Dict | Array; optional): The default value to apply with on_change.failure = 'default'. (default: None)   - `allow_YY` (Bool; optional): This is for `datetime` columns only.  Allow 2-digit years (default: False).
+        If True, we interpret years as ranging from now-70 to now+29 - in 2019
         this is 1949 to 2048 but in 2020 it will be different. If used with
-        `action: 'coerce'`, will convert user input to a 4-digit year.   - `type` ('any', 'numeric', 'text', 'datetime'; optional): The data-type of the column's data.
+        `action: 'coerce'`, will convert user input to a 4-digit year.   - `type` ('any', 'numeric', 'text', 'datetime'; optional): The data-type provides support for per column typing and allows for data
+      validation and coercion.
       'numeric': represents both floats and ints.
       'text': represents a string.
       'datetime': a string representing a date or date-time, in the form:
@@ -275,13 +257,7 @@ components:
         And parsers that do work with 2-digit years may make a different
         guess about the century than we make on the front end.
       'any': represents any type of data.
-      Defaults to 'any' if undefined.
-      NOTE: This feature has not been fully implemented.
-      In the future, it's data types will impact things like
-      text formatting options in the cell (e.g. display 2 decimals
-      for a number), filtering options and behavior, and editing
-      behavior.
-      Stay tuned by following [https://github.com/plotly/dash-table/issues/166](https://github.com/plotly/dash-table/issues/166)s
+      Defaults to 'any' if undefined.s
       - `css` (Array of lists containing elements selector, rule   - `selector` (String; required)   - `rule` (String; required)s; optional): The `css` property is a way to embed CSS selectors and rules
       onto the page.
       We recommend starting with the `style_*` properties
@@ -332,7 +308,7 @@ components:
       left (nested query structure; optional).
       right (nested query structure; optional).
       If the query is invalid or empty, the `derived_filter_query_structure` will
-      be null.
+      be `None`.
       - `derived_viewport_data` (Array of Dicts; optional): This property represents the current state of `data`
       on the current page. This property will be updated
       on paging, sorting, and filtering.
@@ -418,7 +394,7 @@ components:
       - `filter_query` (String; optional): If `filter_action` is enabled, then the current filtering
       string is represented in this `filter_query`
       property.
-      - `fixed_columns` (lists containing elements headers, data   - `headers` (false; optional)   - `data` (0; optional) | lists containing elements headers, data   - `headers` (true; required)   - `data` (optional); optional): `fixed_columns` will "fix" the set of columns so that
+      - `fixed_columns` (lists containing elements data, headers   - `data` (0; optional): Example `{'headers':False, 'data':0}` No columns are fixed (the default)   - `headers` (false; optional) | lists containing elements data, headers   - `data` (optional): Example `{'headers':True, 'data':1}` one column is fixed.   - `headers` (true; required); optional): `fixed_columns` will "fix" the set of columns so that
       they remain visible when scrolling horizontally across
       the unfixed columns. `fixed_columns` fixes columns
       from left-to-right.
@@ -426,21 +402,19 @@ components:
       If `headers` is True, all operation columns (see `row_deletable` and `row_selectable`)
       are fixed. Additional data columns can be fixed by
       assigning a number to `data`.
-      Defaults to `{ headers: False }`.
+      
       Note that fixing columns introduces some changes to the
       underlying markup of the table and may impact the
       way that your columns are rendered or sized.
       View the documentation examples to learn more.
-      - `fixed_rows` (lists containing elements headers, data   - `headers` (false; optional)   - `data` (0; optional) | lists containing elements headers, data   - `headers` (true; required)   - `data` (optional); optional): `fixed_rows` will "fix" the set of rows so that
+      - `fixed_rows` (lists containing elements data, headers   - `data` (0; optional): Example `{'headers':False, 'data':0}` No rows are fixed (the default)   - `headers` (false; optional) | lists containing elements data, headers   - `data` (optional): Example `{'headers':True, 'data':1}` one row is fixed.   - `headers` (true; required); optional): `fixed_rows` will "fix" the set of rows so that
       they remain visible when scrolling vertically down
       the table. `fixed_rows` fixes rows
       from top-to-bottom, starting from the headers.
       If `headers` is False, no rows are fixed.
       If `headers` is True, all header and filter rows (see `filter_action`) are
       fixed. Additional data rows can be fixed by assigning
-      a number to `data`.
-      Defaults to `{ headers: False }`.
-      Note that fixing rows introduces some changes to the
+      a number to `data`.  Note that fixing rows introduces some changes to the
       underlying markup of the table and may impact the
       way that your columns are rendered or sized.
       View the documentation examples to learn more.
@@ -451,20 +425,12 @@ components:
       between two tables within the same tab.
       - `is_focused` (Bool; optional): If True, then the `active_cell` is in a focused state.
       - `loading_state` (lists containing elements is_loading, prop_name, component_name   - `is_loading` (Bool; optional): Determines if the component is loading or not   - `prop_name` (String; optional): Holds which property is loading   - `component_name` (String; optional): Holds the name of the component that is loading; optional): Object that holds the loading state object coming from dash-renderer
-      - `locale_format` (lists containing elements symbol, decimal, group, grouping, numerals, percent, separate_4digits   - `symbol` (Array of Strings; optional)   - `decimal` (String; optional)   - `group` (String; optional)   - `grouping` (Array of s; optional)   - `numerals` (Array of Strings; optional)   - `percent` (String; optional)   - `separate_4digits` (Bool; optional); optional): The localization specific formatting information applied to all columns in the table.
+      - `locale_format` (optional):The localization specific formatting information applied to all columns in the table.
       This prop is derived from the [d3.formatLocale](https://github.com/d3/d3-format#formatLocale) data structure specification.
-      When left unspecified, each individual nested prop will default to a pre-determined value.
-        'symbol': (default: ['$', '']) a list of two strings representing the
+      When left unspecified, each individual nested prop will default to a pre-determined value.. locale_format has the following type: lists containing elements symbol, decimal, group, grouping, numerals, percent, separate_4digits   - `symbol` (Array of Strings; optional): (default: ['$', '']). A  list of two strings representing the
         prefix and suffix symbols. Typically used for currency, and implemented using d3's
-        currency format, but you can use this for other symbols such as measurement units.
-        'decimal': (default: '.') the string used for the decimal separator.
-        'group': (default: ',') the string used for the groups separator.
-        'grouping': (default: [3]) a list of integers representing the grouping pattern.
-        'numerals': a list of ten strings used as replacements for numbers 0-9.
-        'percent': (default: '%') the string used for the percentage symbol.
-        'separate_4digits': (default: True) separate integers with 4-digits or less.
-      - `markdown_options` (lists containing elements link_target   - `link_target` (String | '_blank', '_parent', '_self', '_top'; required); optional): The `markdown_options` property allows customization of the markdown cells behavior.
-       'link_target': (default: '_blank') the link's behavior (_blank opens the link in a
+        currency format, but you can use this for other symbols such as measurement units.   - `decimal` (String; optional): (default: '.'). The string used for the decimal separator.   - `group` (String; optional): (default: ','). The string used for the groups separator.   - `grouping` (Array of s; optional): (default: [3]). A  list of integers representing the grouping pattern.   - `numerals` (Array of Strings; optional): A list of ten strings used as replacements for numbers 0-9.   - `percent` (String; optional): (default: '%'). The string used for the percentage symbol.   - `separate_4digits` (Bool; optional): (default: True). Separate integers with 4-digits or less.
+      - `markdown_options` (optional):The `markdown_options` property allows customization of the markdown cells behavior.. markdown_options has the following type: lists containing elements link_target   - `link_target` (String | '_blank', '_parent', '_self', '_top'; required): (default: '_blank').  The link's behavior (_blank opens the link in a
       new tab, _parent opens the link in the parent frame, _self opens the link in the
       current tab, and _top opens the link in the top frame) or a string
       - `merge_duplicate_headers` (Bool; optional): If True, then column headers that have neighbors with duplicate names
@@ -488,7 +454,7 @@ components:
       handled by the table;
       `'custom'`: data is passed to the table one page at a time, paging logic
       is handled via callbacks;
-      `none`: disables paging, render all of the data at once.
+      `'none'`: disables paging, render all of the data at once.
       - `page_count` (optional): `page_count` represents the number of the pages in the
       paginated table. This is really only useful when performing
       backend pagination, since the front end is able to use the
@@ -538,7 +504,7 @@ components:
       sorted on a per-column basis.
       If `'none'`, then the sorting UI is not displayed.
       If `'native'`, then the sorting UI is displayed and the sorting
-      logic is hanled by the table. That is, it is performed on the data
+      logic is handled by the table. That is, it is performed on the data
       that exists in the `data` property.
       If `'custom'`, the the sorting UI is displayed but it is the
       responsibility of the developer to program the sorting
@@ -546,7 +512,7 @@ components:
       would be the output).
       Clicking on the sort arrows will update the
       `sort_by` property.
-      - `sort_as_null` (Array of String | Bools; optional): An array of string, number and boolean values that are treated as `null`
+      - `sort_as_null` (Array of String | Bools; optional): An array of string, number and boolean values that are treated as `None`
       (i.e. ignored and always displayed last) when sorting.
       This value will be used by columns without `sort_as_null`.
       Defaults to `[]`.
@@ -594,112 +560,84 @@ components:
       - `style_table` (Dict; optional): CSS styles to be applied to the outer `table` container.
       This is commonly used for setting properties like the
       width or the height of the table.
-      - `tooltip` (Dict with Strings as keys and values of type String | lists containing elements delay, duration, type, use_with, value   - `delay` (optional)   - `duration` (optional)   - `type` ('text', 'markdown'; optional)   - `use_with` ('both', 'data', 'header'; optional)   - `value` (String; required); optional): `tooltip` represents the tooltip shown
-      for different columns.
-      The `property` name refers to the column ID.
-      The `type` refers to the type of tooltip syntax used
-      for the tooltip generation. Can either be `markdown`
-      or `text`. Defaults to `text`.
-      The `value` refers to the syntax-based content of
-      the tooltip. This value is required.
-      The `use_with` refers to whether the tooltip will be shown
-      only on data or headers. Can be `both`, `data`, `header`.
-      Defaults to `both`.
-      The `delay` represents the delay in milliseconds before
+      - `tooltip` (optional):`tooltip` is the column based tooltip configuration applied to all rows. The key is the column
+       id and the value is a tooltip configuration.
+      Example: {i: {'value': i, 'use_with: 'both'} for i in df.columns}. tooltip has the following type: Dict with Strings as keys and values of type String | lists containing elements delay, duration, type, use_with, value   - `delay` (optional): Represents the delay in milliseconds before
       the tooltip is shown when hovering a cell. This overrides
-      the table's `tooltip_delay` property. If set to `null`,
-      the tooltip will be shown immediately.
-      The `duration` represents the duration in milliseconds
+      the table's `tooltip_delay` property. If set to `None`,
+      the tooltip will be shown immediately.   - `duration` (optional): represents the duration in milliseconds
       during which the tooltip is shown when hovering a cell.
       This overrides the table's `tooltip_duration` property.
-      If set to `null`, the tooltip will not disappear.
-      Alternatively, the value of the property can also be
-      a plain string. The `text` syntax will be used in
+      If set to `None`, the tooltip will not disappear.   - `type` ('text', 'markdown'; optional): refers to the type of tooltip syntax used
+      for the tooltip generation. Can either be `markdown`
+      or `text`. Defaults to `text`.   - `use_with` ('both', 'data', 'header'; optional): Refers to whether the tooltip will be shown
+      only on data or headers. Can be `both`, `data`, `header`.
+      Defaults to `both`.   - `value` (String; required): refers to the syntax-based content of
+      the tooltip. This value is required. Alternatively, the value of the
+      property can also be  a plain string. The `text` syntax will be used in
       that case.
-      - `tooltip_conditional` (Array of lists containing elements delay, duration, if, type, value   - `delay` (optional)   - `duration` (optional)   - `if` (lists containing elements column_id, filter_query, row_index   - `column_id` (String; optional)   - `filter_query` (String; optional)   - `row_index` ('odd', 'even'; optional); required)   - `type` ('text', 'markdown'; optional)   - `value` (String; required)s; optional): `tooltip_conditional` represents the tooltip shown
+      - `tooltip_conditional` (optional):`tooltip_conditional` represents the tooltip shown
       for different columns and cells.
-      This property allows you to specify different tooltips for
+      This property allows you to specify different tooltips
       depending on certain conditions. For example, you may have
       different tooltips in the same column based on the value
       of a certain data property.
       Priority is from first to last defined conditional tooltip
       in the list. Higher priority (more specific) conditional
-      tooltips should be put at the beginning of the list.
-      The `if` refers to the condition that needs to be fulfilled
+      tooltips should be put at the beginning of the list.. tooltip_conditional has the following type: Array of lists containing elements delay, duration, if, type, value   - `delay` (optional): The `delay` represents the delay in milliseconds before
+      the tooltip is shown when hovering a cell. This overrides
+      the table's `tooltip_delay` property. If set to `None`,
+      the tooltip will be shown immediately.   - `duration` (optional): The `duration` represents the duration in milliseconds
+      during which the tooltip is shown when hovering a cell.
+      This overrides the table's `tooltip_duration` property.
+      If set to `None`, the tooltip will not disappear.   - `if` (lists containing elements column_id, filter_query, row_index   - `column_id` (String; optional): `column_id` refers to the column ID that must be matched.   - `filter_query` (String; optional): `filter_query` refers to the query that must evaluate to True.   - `row_index` ('odd', 'even'; optional): `row_index` refers to the index of the row in the source `data`.; required): The `if` refers to the condition that needs to be fulfilled
       in order for the associated tooltip configuration to be
       used. If multiple conditions are defined, all conditions
-      must be met for the tooltip to be used by a cell.
-      The `if` nested property `column_id` refers to the column
-      ID that must be matched.
-      The `if` nested property `row_index` refers to the index
-      of the row in the source `data`.
-      The `if` nested property `filter_query` refers to the query that
-      must evaluate to True.
-      The `type` refers to the type of tooltip syntax used
+      must be met for the tooltip to be used by a cell.   - `type` ('text', 'markdown'; optional): The `type` refers to the type of tooltip syntax used
       for the tooltip generation. Can either be `markdown`
-      or `text`. Defaults to `text`.
-      The `value` refers to the syntax-based content of
-      the tooltip. This value is required.
-      The `delay` represents the delay in milliseconds before
-      the tooltip is shown when hovering a cell. This overrides
-      the table's `tooltip_delay` property. If set to `null`,
-      the tooltip will be shown immediately.
-      The `duration` represents the duration in milliseconds
-      during which the tooltip is shown when hovering a cell.
-      This overrides the table's `tooltip_duration` property.
-      If set to `null`, the tooltip will not disappear.
-      - `tooltip_data` (Array of Dict with Strings as keys and values of type String | lists containing elements delay, duration, type, value   - `delay` (optional)   - `duration` (optional)   - `type` ('text', 'markdown'; optional)   - `value` (String; required)s; optional): `tooltip_data` represents the tooltip shown
+      or `text`. Defaults to `text`.   - `value` (String; required): The `value` refers to the syntax-based content of the tooltip. This value is required.s
+      - `tooltip_data` (optional):`tooltip_data` represents the tooltip shown
       for different columns and cells.
-      A list of objects for which each key is
-      a column id and the value a tooltip configuration.
-      For each tooltip configuration,
-      The `type` refers to the type of tooltip syntax used
-      for the tooltip generation. Can either be `markdown`
-      or `text`. Defaults to `text`.
-      The `value` refers to the syntax-based content of
-      the tooltip. This value is required.
-      The `delay` represents the delay in milliseconds before
+      A list of dicts for which each key is
+      a column id and the value is a tooltip configuration.. tooltip_data has the following type: Array of Dict with Strings as keys and values of type String | lists containing elements delay, duration, type, value   - `delay` (optional): The `delay` represents the delay in milliseconds before
       the tooltip is shown when hovering a cell. This overrides
-      the table's `tooltip_delay` property. If set to `null`,
-      the tooltip will be shown immediately.
-      The `duration` represents the duration in milliseconds
+      the table's `tooltip_delay` property. If set to `None`,
+      the tooltip will be shown immediately.   - `duration` (optional): The `duration` represents the duration in milliseconds
       during which the tooltip is shown when hovering a cell.
       This overrides the table's `tooltip_duration` property.
-      If set to `null`, the tooltip will not disappear.
+      If set to `None`, the tooltip will not disappear.
       Alternatively, the value of the property can also be
       a plain string. The `text` syntax will be used in
-      that case.
+      that case.   - `type` ('text', 'markdown'; optional): For each tooltip configuration,
+      The `type` refers to the type of tooltip syntax used
+      for the tooltip generation. Can either be `markdown`
+      or `text`. Defaults to `text`.   - `value` (String; required): The `value` refers to the syntax-based content of the tooltip. This value is required.s
       - `tooltip_delay` (optional): `tooltip_delay` represents the table-wide delay in milliseconds before
-      the tooltip is shown when hovering a cell. If set to `null`, the tooltip
+      the tooltip is shown when hovering a cell. If set to `None`, the tooltip
       will be shown immediately.
       Defaults to 350.
       - `tooltip_duration` (optional): `tooltip_duration` represents the table-wide duration in milliseconds
       during which the tooltip will be displayed when hovering a cell. If
-      set to `null`, the tooltip will not disappear.
+      set to `None`, the tooltip will not disappear.
       Defaults to 2000.
-      - `tooltip_header` (Dict with Strings as keys and values of type String | lists containing elements delay, duration, type, value   - `delay` (optional)   - `duration` (optional)   - `type` ('text', 'markdown'; optional)   - `value` (String; required) | Array of null | String | lists containing elements delay, duration, type, value   - `delay` (optional)   - `duration` (optional)   - `type` ('text', 'markdown'; optional)   - `value` (String; required)s; optional): `tooltip_header` represents the tooltip shown
-      for different columns and cells.
-      An object for which each key is a column id and the value
-      a list of tooltip configurations or a toolttip configuration.
-      If the value is tooltip configuration, the same tooltip will
-      be used for all header rows of the corresponding column.
-      For each tooltip configuration,
-      The `type` refers to the type of tooltip syntax used
-      for the tooltip generation. Can either be `markdown`
-      or `text`. Defaults to `text`.
-      The `value` refers to the syntax-based content of
-      the tooltip. This value is required.
-      The `delay` represents the delay in milliseconds before
+      - `tooltip_header` (optional):`tooltip_header` represents the tooltip shown
+      for each header column and optionally each header row.
+      Example to show long column names in a tooltip: {i: i for i in df.columns}.
+      Example to show different column names in a tooltip: {'Rep': 'Republican', 'Dem': 'Democrat'}.
+      If the table has multiple rows of headers, then use a list as the value of the
+      `tooltip_header` items.. tooltip_header has the following type: Dict with Strings as keys and values of type String | lists containing elements delay, duration, type, value   - `delay` (optional): The `delay` represents the delay in milliseconds before
       the tooltip is shown when hovering a cell. This overrides
-      the table's `tooltip_delay` property. If set to `null`,
-      the tooltip will be shown immediately.
-      The `duration` represents the duration in milliseconds
+      the table's `tooltip_delay` property. If set to `None`,
+      the tooltip will be shown immediately.   - `duration` (optional): The `duration` represents the duration in milliseconds
       during which the tooltip is shown when hovering a cell.
       This overrides the table's `tooltip_duration` property.
-      If set to `null`, the tooltip will not disappear.
+      If set to `None`, the tooltip will not disappear.
       Alternatively, the value of the property can also be
-      a plain string or a nully value to . The `text` syntax will be used in
-      that case.
+      a plain string. The `text` syntax will be used in
+      that case.   - `type` ('text', 'markdown'; optional): For each tooltip configuration,
+      The `type` refers to the type of tooltip syntax used
+      for the tooltip generation. Can either be `markdown`
+      or `text`. Defaults to `text`.   - `value` (String; required): The `value` refers to the syntax-based content of the tooltip. This value is required. | Array of null | String | lists containing elements delay, duration, type, value   - `delay` (optional)   - `duration` (optional)   - `type` ('text', 'markdown'; optional)   - `value` (String; required)s
       - `virtualization` (Bool; optional): This property tells the table to use virtualization when rendering.
       Assumptions are that:
       the width of the columns is fixed;

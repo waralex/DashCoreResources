@@ -1,88 +1,88 @@
-version: "1.15.0"
+version: "1.16.0"
 name: "dash_core_components"
 deps:
   - namespace: "dash_core_components"
     resources:
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/async-datepicker.js"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-datepicker.js"
         relative_package_path: "async-datepicker.js"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/async-dropdown.js"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-dropdown.js"
         relative_package_path: "async-dropdown.js"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/async-graph.js"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-graph.js"
         relative_package_path: "async-graph.js"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/async-highlight.js"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-highlight.js"
         relative_package_path: "async-highlight.js"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/async-markdown.js"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-markdown.js"
         relative_package_path: "async-markdown.js"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/async-slider.js"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-slider.js"
         relative_package_path: "async-slider.js"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/async-upload.js"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-upload.js"
         relative_package_path: "async-upload.js"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/async-datepicker.js.map"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-datepicker.js.map"
         dynamic: true
         relative_package_path: "async-datepicker.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/async-dropdown.js.map"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-dropdown.js.map"
         dynamic: true
         relative_package_path: "async-dropdown.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/async-graph.js.map"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-graph.js.map"
         dynamic: true
         relative_package_path: "async-graph.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/async-highlight.js.map"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-highlight.js.map"
         dynamic: true
         relative_package_path: "async-highlight.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/async-markdown.js.map"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-markdown.js.map"
         dynamic: true
         relative_package_path: "async-markdown.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/async-slider.js.map"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-slider.js.map"
         dynamic: true
         relative_package_path: "async-slider.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/async-upload.js.map"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-upload.js.map"
         dynamic: true
         relative_package_path: "async-upload.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/dash_core_components.min.js"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/dash_core_components.min.js"
         relative_package_path: "dash_core_components.min.js"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/dash_core_components.min.js.map"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/dash_core_components.min.js.map"
         dynamic: true
         relative_package_path: "dash_core_components.min.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/dash_core_components-shared.js"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/dash_core_components-shared.js"
         relative_package_path: "dash_core_components-shared.js"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/dash_core_components-shared.js.map"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/dash_core_components-shared.js.map"
         dynamic: true
         relative_package_path: "dash_core_components-shared.js.map"
       - async: "eager"
         type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/plotly.min.js"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/plotly.min.js"
         relative_package_path: "plotly.min.js"
       - async: "lazy"
         type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/async-plotlyjs.js"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-plotlyjs.js"
         relative_package_path: "async-plotlyjs.js"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.15.0/dash_core_components/async-plotlyjs.js.map"
+        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-plotlyjs.js.map"
         dynamic: true
         relative_package_path: "async-plotlyjs.js.map"
 prefix: "dcc"
@@ -439,6 +439,21 @@ components:
       not supported on vertical calendar
       - `with_portal` (Bool; optional): If True, calendar will open in a screen overlay portal,
       not supported on vertical calendar
+  - name: Download
+    args:
+      - base64
+      - id
+      - type
+      - data
+    wild_args: []
+    docstr: |-
+      A Download component
+      The Download component opens a download dialog when the data property changes.
+      
+      - `id` (String; optional): The ID of this component, used to identify dash components in callbacks.
+      - `base64` (Bool; optional): Default value for base64, used when not set as part of the data property.
+      - `data` (lists containing elements filename, content, base64, type   - `filename` (String; required): Suggested filename in the download dialogue.   - `content` (String; required): File content.   - `base64` (Bool; optional): Set to true, when data is base64 encoded.   - `type` (String; optional): Blob type, usually a MIME-type.; optional): On change, a download is invoked.
+      - `type` (String; optional): Default value for type, used when not set as part of the data property.
   - name: Dropdown
     args:
       - loading_state
@@ -1403,8 +1418,8 @@ components:
       - `last_modified` (Array of s; optional): The last modified date of the file that was uploaded in unix time
       (seconds since 1970).
       - `loading_state` (lists containing elements is_loading, prop_name, component_name   - `is_loading` (Bool; optional): Determines if the component is loading or not   - `prop_name` (String; optional): Holds which property is loading   - `component_name` (String; optional): Holds the name of the component that is loading; optional): Object that holds the loading state object coming from dash-renderer
-      - `max_size` (optional): Maximum file size. If `-1`, then infinite
-      - `min_size` (optional): Minimum file size
+      - `max_size` (optional): Maximum file size in bytes. If `-1`, then infinite
+      - `min_size` (optional): Minimum file size in bytes
       - `multiple` (Bool; optional): Allow dropping multiple files
       - `style` (Dict; optional): CSS styles to apply
       - `style_active` (Dict; optional): CSS styles to apply while active
