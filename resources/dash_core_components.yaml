@@ -1,90 +1,5 @@
-version: "1.16.0"
+version: "2.0.0"
 name: "dash_core_components"
-deps:
-  - namespace: "dash_core_components"
-    resources:
-      - async: true
-        type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-datepicker.js"
-        relative_package_path: "async-datepicker.js"
-      - async: true
-        type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-dropdown.js"
-        relative_package_path: "async-dropdown.js"
-      - async: true
-        type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-graph.js"
-        relative_package_path: "async-graph.js"
-      - async: true
-        type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-highlight.js"
-        relative_package_path: "async-highlight.js"
-      - async: true
-        type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-markdown.js"
-        relative_package_path: "async-markdown.js"
-      - async: true
-        type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-slider.js"
-        relative_package_path: "async-slider.js"
-      - async: true
-        type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-upload.js"
-        relative_package_path: "async-upload.js"
-      - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-datepicker.js.map"
-        dynamic: true
-        relative_package_path: "async-datepicker.js.map"
-      - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-dropdown.js.map"
-        dynamic: true
-        relative_package_path: "async-dropdown.js.map"
-      - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-graph.js.map"
-        dynamic: true
-        relative_package_path: "async-graph.js.map"
-      - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-highlight.js.map"
-        dynamic: true
-        relative_package_path: "async-highlight.js.map"
-      - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-markdown.js.map"
-        dynamic: true
-        relative_package_path: "async-markdown.js.map"
-      - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-slider.js.map"
-        dynamic: true
-        relative_package_path: "async-slider.js.map"
-      - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-upload.js.map"
-        dynamic: true
-        relative_package_path: "async-upload.js.map"
-      - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/dash_core_components.min.js"
-        relative_package_path: "dash_core_components.min.js"
-      - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/dash_core_components.min.js.map"
-        dynamic: true
-        relative_package_path: "dash_core_components.min.js.map"
-      - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/dash_core_components-shared.js"
-        relative_package_path: "dash_core_components-shared.js"
-      - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/dash_core_components-shared.js.map"
-        dynamic: true
-        relative_package_path: "dash_core_components-shared.js.map"
-      - async: "eager"
-        type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/plotly.min.js"
-        relative_package_path: "plotly.min.js"
-      - async: "lazy"
-        type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-plotlyjs.js"
-        relative_package_path: "async-plotlyjs.js"
-      - type: js
-        external_url: "https://unpkg.com/dash-core-components@1.16.0/dash_core_components/async-plotlyjs.js.map"
-        dynamic: true
-        relative_package_path: "async-plotlyjs.js.map"
 prefix: "dcc"
 components:
   - name: Checklist
@@ -139,6 +54,31 @@ components:
       session: window.sessionStorage, data is cleared once the browser quit.
       - `style` (Dict; optional): The style of the container (div)
       - `value` (Array of Strings; optional): The currently selected value
+  - name: Clipboard
+    args:
+      - n_clicks
+      - target_id
+      - id
+      - loading_state
+      - title
+      - content
+      - className
+      - style
+    wild_args: []
+    docstr: |-
+      A Clipboard component
+      The Clipboard component copies text to the clipboard
+      
+      - `id` (String; optional): The ID used to identify this component.
+      - `className` (String; optional): The class  name of the icon element
+      - `content` (String; optional): The text to  be copied to the clipboard if the `target_id` is None.
+      - `loading_state` (lists containing elements is_loading, prop_name, component_name   - `is_loading` (Bool; optional): Determines if the component is loading or not   - `prop_name` (String; optional): Holds which property is loading   - `component_name` (String; optional): Holds the name of the component that is loading; optional): Object that holds the loading state object coming from dash-renderer
+      - `n_clicks` (optional): The number of times copy button was clicked
+      - `style` (Dict; optional): The icon's styles
+      - `target_id` (String | Dict; optional): The id of target component containing text to copy to the clipboard.
+      The inner text of the `children` prop will be copied to the clipboard.  If none, then the text from the
+       `value` prop will be copied.
+      - `title` (String; optional): The text shown as a tooltip when hovering over the copy icon.
   - name: ConfirmDialog
     args:
       - submit_n_clicks
@@ -230,6 +170,7 @@ components:
       - id
       - start_date_placeholder_text
       - style
+      - disabled_days
       - updatemode
       - persistence_type
       - className
@@ -260,6 +201,9 @@ components:
       - `day_size` (optional): Size of rendered calendar days, higher number
       means bigger day size and larger calendar overall
       - `disabled` (Bool; optional): If True, no dates can be selected.
+      - `disabled_days` (Array of Strings; optional): Specifies additional days between min_date_allowed and max_date_allowed
+      that should be disabled. Accepted datetime.datetime objects or strings
+      in the format 'YYYY-MM-DD'
       - `display_format` (String; optional): Specifies the format that the selected dates will be displayed
       valid formats are variations of "MM YY DD". For example:
       "MM YY DD" renders as '05 10 97' for May 10th 1997
@@ -354,6 +298,7 @@ components:
       - with_full_screen_portal
       - max_date_allowed
       - id
+      - disabled_days
       - persistence_type
       - date
       - day_size
@@ -386,6 +331,9 @@ components:
       - `day_size` (optional): Size of rendered calendar days, higher number
       means bigger day size and larger calendar overall
       - `disabled` (Bool; optional): If True, no dates can be selected.
+      - `disabled_days` (Array of Strings; optional): Specifies additional days between min_date_allowed and max_date_allowed
+      that should be disabled. Accepted datetime.datetime objects or strings
+      in the format 'YYYY-MM-DD'
       - `display_format` (String; optional): Specifies the format that the selected dates will be displayed
       valid formats are variations of "MM YY DD". For example:
       "MM YY DD" renders as '05 10 97' for May 10th 1997
@@ -706,7 +654,7 @@ components:
       - `disabled` ('disabled', 'DISABLED' | Bool; optional): If true, the input is disabled and can't be clicked on.
       disabled is an HTML boolean attribute - it is enabled by a boolean or
       'disabled'. Alternative capitalizations `DISABLED`
-      - `inputMode` ("verbatim", "latin", "latin-name", "latin-prose", "full-width-latin", "kana", "katakana", "numeric", "tel", "email", "url"; optional): Provides a hint to the browser as to the type of data that might be
+      - `inputMode` ('verbatim', 'latin', 'latin-name', 'latin-prose', 'full-width-latin', 'kana', 'katakana', 'numeric', 'tel', 'email', 'url'; optional): Provides a hint to the browser as to the type of data that might be
       entered by the user while editing the element or its contents.
       - `list` (String; optional): Identifies a list of pre-defined options to suggest to the user.
       The value must be the id of a <datalist> element in the same document.
@@ -755,7 +703,7 @@ components:
       - `spellCheck` ('true', 'false' | Bool; optional): Setting the value of this attribute to true indicates that the element needs to have its spelling and grammar checked. The value default indicates that the element is to act according to a default behavior, possibly based on the parent element's own spellcheck value. The value false indicates that the element should not be checked.
       - `step` (String; optional): Works with the min and max attributes to limit the increments at which a numeric or date-time value can be set. It can be the string any or a positive floating point number. If this attribute is not set to any, the control accepts only values at multiples of the step value greater than the minimum.
       - `style` (Dict; optional): The input's inline styles
-      - `type` ("text", 'number', 'password', 'email', 'range', 'search', 'tel', 'url', 'hidden'; optional): The type of control to render.
+      - `type` ('text', 'number', 'password', 'email', 'range', 'search', 'tel', 'url', 'hidden'; optional): The type of control to render.
       - `value` (String; optional): The value of the input
   - name: Interval
     args:
@@ -1367,6 +1315,45 @@ components:
       - `title` (String; optional): Text to be displayed in a tooltip when hovering over the element.
       - `value` (String; optional): The value of the textarea
       - `wrap` (String; optional): Indicates whether the text should be wrapped.
+  - name: Tooltip
+    args:
+      - targetable
+      - loading_state
+      - background_color
+      - bbox
+      - zindex
+      - loading_text
+      - border_color
+      - style
+      - children
+      - show
+      - id
+      - className
+      - direction
+    wild_args: []
+    docstr: |-
+      A Tooltip component
+      A tooltip with an absolute position.
+      
+      - `children` (a list of or a singular dash component, string or number; optional): The contents of the tooltip
+      - `id` (String; optional): The ID of this component, used to identify dash components
+      in callbacks. The ID needs to be unique across all of the
+      components in an app.
+      - `background_color` (String; optional): Color of the tooltip background, as a CSS color string.
+      - `bbox` (lists containing elements x0, y0, x1, y1   - `x0` (optional)   - `y0` (optional)   - `x1` (optional)   - `y1` (optional); optional): The bounding box coordinates of the item to label, in px relative to
+      the positioning parent of the Tooltip component.
+      - `border_color` (String; optional): Color of the tooltip border, as a CSS color string.
+      - `className` (String; optional): The class of the tooltip
+      - `direction` ('top', 'right', 'bottom', 'left'; optional): The side of the `bbox` on which the tooltip should open.
+      - `loading_state` (lists containing elements is_loading, prop_name, component_name   - `is_loading` (Bool; optional): Determines if the component is loading or not   - `prop_name` (String; optional): Holds which property is loading   - `component_name` (String; optional): Holds the name of the component that is loading; optional): Object that holds the loading state object coming from dash-renderer
+      - `loading_text` (String; optional): The text displayed in the tooltip while loading
+      - `show` (Bool; optional): Whether to show the tooltip
+      - `style` (Dict; optional): The style of the tooltip
+      - `targetable` (Bool; optional): Whether the tooltip itself can be targeted by pointer events.
+      For tooltips triggered by hover events, typically this should be left
+      `false` to avoid the tooltip interfering with those same events.
+      - `zindex` (optional): The `z-index` CSS property to assign to the tooltip. Components with
+      higher values will be displayed on top of components with lower values.
   - name: Upload
     args:
       - filename
