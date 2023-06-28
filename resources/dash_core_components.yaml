@@ -1,4 +1,4 @@
-version: "2.0.0"
+version: "2.10.0"
 name: "dash_core_components"
 prefix: "dcc"
 components:
@@ -15,6 +15,7 @@ components:
       - style
       - value
       - id
+      - inline
       - persistence_type
       - className
     wild_args: []
@@ -29,6 +30,8 @@ components:
       in callbacks. The ID needs to be unique across all of the
       components in an app.
       - `className` (String; optional): The class of the container (div)
+      - `inline` (Bool; optional): Indicates whether the options labels should be displayed inline (true=horizontal)
+      or in a block (false=vertical).
       - `inputClassName` (String; optional): The class of the <input> checkbox element
       - `inputStyle` (Dict; optional): The style of the <input> checkbox element
       - `labelClassName` (String; optional): The class of the <label> that wraps the checkbox input
@@ -36,9 +39,11 @@ components:
       - `labelStyle` (Dict; optional): The style of the <label> that wraps the checkbox input
        and the option's label
       - `loading_state` (lists containing elements is_loading, prop_name, component_name   - `is_loading` (Bool; optional): Determines if the component is loading or not   - `prop_name` (String; optional): Holds which property is loading   - `component_name` (String; optional): Holds the name of the component that is loading; optional): Object that holds the loading state object coming from dash-renderer
-      - `options` (optional):An array of options. options has the following type: Array of lists containing elements label, value, disabled   - `label` (String; required): The checkbox's label   - `value` (String; required): The value of the checkbox. This value
+      - `options` (optional):An array of options. options has the following type: Array of String | Bools | Dict | Array of lists containing elements label, value, disabled, title   - `label` (a list of or a singular dash component, string or number; required): The option's label   - `value` (String | Bool; required): The value of the option. This value
       corresponds to the items specified in the
-      `value` property.   - `disabled` (Bool; optional): If true, this checkbox is disabled and can't be clicked on.s
+      `value` property.   - `disabled` (Bool; optional): If true, this option is disabled and cannot be selected.   - `title` (String; optional): The HTML 'title' attribute for the option. Allows for
+      information on hover. For more information on this attribute,
+      see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/titles
       - `persisted_props` (Array of 'value's; optional): Properties whose user interactions will persist after refreshing the
       component or the page. Since only `value` is allowed this prop can
       normally be ignored.
@@ -53,7 +58,7 @@ components:
       local: window.localStorage, data is kept after the browser quit.
       session: window.sessionStorage, data is cleared once the browser quit.
       - `style` (Dict; optional): The style of the container (div)
-      - `value` (Array of Strings; optional): The currently selected value
+      - `value` (Array of String | Bools; optional): The currently selected value
   - name: Clipboard
     args:
       - n_clicks
@@ -147,12 +152,12 @@ components:
       - month_format
       - disabled
       - start_date
-      - display_format
+      - clearable
       - initial_visible_month
-      - start_date_id
+      - display_format
       - is_RTL
       - end_date_placeholder_text
-      - clearable
+      - start_date_id
       - reopen_calendar_on_clear
       - minimum_nights
       - persisted_props
@@ -161,17 +166,17 @@ components:
       - show_outside_days
       - persistence
       - number_of_months_shown
-      - end_date_id
+      - updatemode
       - end_date
+      - stay_open_on_select
       - with_portal
       - with_full_screen_portal
-      - stay_open_on_select
       - max_date_allowed
-      - id
+      - end_date_id
       - start_date_placeholder_text
       - style
       - disabled_days
-      - updatemode
+      - id
       - persistence_type
       - className
       - day_size
@@ -407,6 +412,7 @@ components:
       - loading_state
       - search_value
       - disabled
+      - maxHeight
       - searchable
       - clearable
       - options
@@ -441,14 +447,18 @@ components:
       the selected value.
       - `disabled` (Bool; optional): If true, this dropdown is disabled and the selection cannot be changed.
       - `loading_state` (lists containing elements is_loading, prop_name, component_name   - `is_loading` (Bool; optional): Determines if the component is loading or not   - `prop_name` (String; optional): Holds which property is loading   - `component_name` (String; optional): Holds the name of the component that is loading; optional): Object that holds the loading state object coming from dash-renderer
+      - `maxHeight` (optional): height of the options dropdown.
       - `multi` (Bool; optional): If true, the user can select multiple values
       - `optionHeight` (optional): height of each option. Can be increased when label lengths would wrap around
       - `options` (optional):An array of options {label: [string|number], value: [string|number]},
-      an optional disabled field can be used for each option. options has the following type: Array of lists containing elements label, value, disabled, title   - `label` (String; required): The dropdown's label   - `value` (String; required): The value of the dropdown. This value
+      an optional disabled field can be used for each option. options has the following type: Array of String | Bools | Dict | Array of lists containing elements label, value, disabled, title, search   - `label` (a list of or a singular dash component, string or number; required): The option's label   - `value` (String | Bool; required): The value of the option. This value
       corresponds to the items specified in the
       `value` property.   - `disabled` (Bool; optional): If true, this option is disabled and cannot be selected.   - `title` (String; optional): The HTML 'title' attribute for the option. Allows for
       information on hover. For more information on this attribute,
-      see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/titles
+      see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title   - `search` (String; optional): Optional search value for the option, to use if the label
+      is a component or provide a custom search value different
+      from the label. If no search value and the label is a
+      component, the `value` will be used for search.s
       - `persisted_props` (Array of 'value's; optional): Properties whose user interactions will persist after refreshing the
       component or the page. Since only `value` is allowed this prop can
       normally be ignored.
@@ -466,17 +476,65 @@ components:
       - `search_value` (String; optional): The value typed in the DropDown for searching.
       - `searchable` (Bool; optional): Whether to enable the searching feature or not
       - `style` (Dict; optional): Defines CSS styles which will override styles previously set.
-      - `value` (String | Array of Strings; optional): The value of the input. If `multi` is false (the default)
+      - `value` (String | Bool | Array of String | Bools; optional): The value of the input. If `multi` is false (the default)
       then value is just a string that corresponds to the values
       provided in the `options` property. If `multi` is true, then
       multiple values can be selected at once, and `value` is an
       array of items with values corresponding to those in the
       `options` prop.
+  - name: Geolocation
+    args:
+      - timestamp
+      - maximum_age
+      - update_now
+      - id
+      - position
+      - position_error
+      - local_date
+      - high_accuracy
+      - show_alert
+      - timeout
+    wild_args: []
+    docstr: |-
+      A Geolocation component
+      The CurrentLocation component gets geolocation of the device from the web browser.  See more info here:
+      https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
+      
+      - `id` (String; optional): The ID used to identify this component in Dash callbacks.
+      - `high_accuracy` (Bool; optional): If true and if the device is able to provide a more accurate position,
+       it will do so. Note that this can result in slower response times or increased power consumption (with a GPS
+       chip on a mobile device for example). If false (the default value), the device can save resources by
+       responding more quickly and/or using less power.
+      - `local_date` (String; optional): The local date and time when the device position was updated.
+      Format:  MM/DD/YYYY, hh:mm:ss p   where p is AM or PM
+      - `maximum_age` (optional): The maximum age in milliseconds of a possible cached position that is acceptable to return. If set to 0,
+      it means that the device cannot use a cached position and must attempt to retrieve the real current position.
+      If set to Infinity the device must return a cached position regardless of its age. Default: 0.
+      - `position` (lists containing elements lat, lon, accuracy, alt, alt_accuracy, heading, speed   - `lat` (optional)   - `lon` (optional)   - `accuracy` (optional)   - `alt` (optional)   - `alt_accuracy` (optional)   - `heading` (optional)   - `speed` (optional); optional): The position of the device.  `lat`, `lon`, and `accuracy` will always be returned.  The other data will be included
+      when available, otherwise it will be NaN.
+      
+            `lat` is latitude in degrees.
+            `lon` is longitude in degrees.
+            `accuracy` is the accuracy of the lat/lon in meters.    *
+      
+            `alt` is altitude above mean sea level in meters.
+            `alt_accuracy` is the accuracy of the altitude  in meters.
+            `heading` is the compass heading in degrees.
+            `speed` is the  speed in meters per second.
+      - `position_error` (lists containing elements code, message   - `code` (optional)   - `message` (String; optional); optional): Position error
+      - `show_alert` (Bool; optional): If true, error messages will be displayed as an alert
+      - `timeout` (optional): The maximum length of time (in milliseconds) the device is allowed to take in order to return a position.
+      The default value is Infinity, meaning that data will not be return until the position is available.
+      - `timestamp` (optional): The Unix timestamp from when the position was updated
+      - `update_now` (Bool; optional): Forces a one-time update of the position data.   If set to True in a callback, the browser
+        will update the position data and reset update_now back to False.  This can, for example, be used to update the
+       position with a button or an interval timer.
   - name: Graph
     args:
       - prependData
       - relayoutData
       - loading_state
+      - mathjax
       - animation_options
       - figure
       - hoverData
@@ -516,8 +574,8 @@ components:
       - `clickData` (Dict; optional): Data from latest click event. Read-only.
       - `config` (optional):Plotly.js config options.
       See https://plotly.com/javascript/configuration-options/
-      for more info.. config has the following type: lists containing elements staticPlot, plotlyServerURL, editable, edits, autosizable, responsive, queueLength, fillFrame, frameMargins, scrollZoom, doubleClick, doubleClickDelay, showTips, showAxisDragHandles, showAxisRangeEntryBoxes, showLink, sendData, linkText, displayModeBar, showSendToCloud, showEditInChartStudio, modeBarButtonsToRemove, modeBarButtonsToAdd, modeBarButtons, toImageButtonOptions, displaylogo, watermark, plotGlPixelRatio, topojsonURL, mapboxAccessToken, locale, locales   - `staticPlot` (Bool; optional): No interactivity, for export or image generation   - `plotlyServerURL` (String; optional): Base URL for a Plotly cloud instance, if `showSendToCloud` is enabled   - `editable` (Bool; optional): We can edit titles, move annotations, etc - sets all pieces of `edits`
-      unless a separate `edits` config item overrides individual parts   - `edits` (optional):A set of editable properties. edits has the following type: lists containing elements annotationPosition, annotationTail, annotationText, axisTitleText, colorbarPosition, colorbarTitleText, legendPosition, legendText, shapePosition, titleText   - `annotationPosition` (Bool; optional): The main anchor of the annotation, which is the
+      for more info.. config has the following type: lists containing elements staticPlot, plotlyServerURL, editable, editSelection, edits, autosizable, responsive, queueLength, fillFrame, frameMargins, scrollZoom, doubleClick, doubleClickDelay, showTips, showAxisDragHandles, showAxisRangeEntryBoxes, showLink, sendData, linkText, displayModeBar, showSendToCloud, showEditInChartStudio, modeBarButtonsToRemove, modeBarButtonsToAdd, modeBarButtons, toImageButtonOptions, displaylogo, watermark, plotGlPixelRatio, topojsonURL, mapboxAccessToken, locale, locales   - `staticPlot` (Bool; optional): No interactivity, for export or image generation   - `plotlyServerURL` (String; optional): Base URL for a Plotly cloud instance, if `showSendToCloud` is enabled   - `editable` (Bool; optional): We can edit titles, move annotations, etc - sets all pieces of `edits`
+      unless a separate `edits` config item overrides individual parts   - `editSelection` (Bool; optional): Enables moving selections   - `edits` (optional):A set of editable properties. edits has the following type: lists containing elements annotationPosition, annotationTail, annotationText, axisTitleText, colorbarPosition, colorbarTitleText, legendPosition, legendText, shapePosition, titleText   - `annotationPosition` (Bool; optional): The main anchor of the annotation, which is the
       text (if no arrow) or the arrow (which drags the whole thing leaving
       the arrow length & direction unchanged)   - `annotationTail` (Bool; optional): Just for annotations with arrows, change the length and direction of the arrow   - `annotationText` (Bool; optional)   - `axisTitleText` (Bool; optional)   - `colorbarPosition` (Bool; optional)   - `colorbarTitleText` (Bool; optional)   - `legendPosition` (Bool; optional)   - `legendText` (Bool; optional): Edit the trace name fields from the legend   - `shapePosition` (Bool; optional)   - `titleText` (Bool; optional): The global `layout.title`   - `autosizable` (Bool; optional): DO autosize once regardless of layout.autosize
       (use default width or height values otherwise)   - `responsive` (Bool; optional): Whether to change layout size when the window size changes   - `queueLength` (optional): Set the length of the undo/redo queue   - `fillFrame` (Bool; optional): If we DO autosize, do we fill the container or the screen?   - `frameMargins` (optional): If we DO autosize, set the frame margins in percents of plot size   - `scrollZoom` (Bool; optional): Mousewheel or two-finger scroll zooms the plot   - `doubleClick` (false, 'reset', 'autosize', 'reset+autosize'; optional): Double click interaction (false, 'reset', 'autosize' or 'reset+autosize')   - `doubleClickDelay` (optional): Delay for registering a double-click event in ms. The
@@ -559,6 +617,7 @@ components:
       `config` is set separately by the `config` property
       - `hoverData` (Dict; optional): Data from latest hover event. Read-only.
       - `loading_state` (lists containing elements is_loading, prop_name, component_name   - `is_loading` (Bool; optional): Determines if the component is loading or not   - `prop_name` (String; optional): Holds which property is loading   - `component_name` (String; optional): Holds the name of the component that is loading; optional): Object that holds the loading state object coming from dash-renderer
+      - `mathjax` (Bool; optional): If true, loads mathjax v3 (tex-svg) into the page and use it in the graph
       - `prependData` (Array | Dict; optional): Data that should be prepended to existing traces. Has the form
       `[updateData, traceIndices, maxPoints]`, where `updateData` is an object
       containing the data to prepend, `traceIndices` (optional) is an array of
@@ -617,16 +676,16 @@ components:
       - selectionEnd
       - name
       - placeholder
-      - multiple
       - n_submit_timestamp
+      - multiple
       - persistence
-      - style
-      - autoComplete
       - n_blur
+      - autoComplete
+      - style
       - value
-      - id
-      - type
       - step
+      - type
+      - id
       - spellCheck
       - persistence_type
       - className
@@ -738,8 +797,8 @@ components:
       - href
       - title
       - refresh
-      - className
       - target
+      - className
       - style
     wild_args: []
     docstr: |-
@@ -814,7 +873,13 @@ components:
       - `hash` (String; optional): hash in window.location - e.g., "#myhash"
       - `href` (String; optional): href in window.location - e.g., "/my/full/pathname?myargument=1#myhash"
       - `pathname` (String; optional): pathname in window.location - e.g., "/my/full/pathname"
-      - `refresh` (Bool; optional): Refresh the page when the location is updated?
+      - `refresh` ('callback-nav' | Bool; optional): Use `True` to navigate outside the Dash app or to manually refresh a page.
+      Use `False` if the same callback that updates the Location component is also
+      updating the page content - typically used in multi-page apps that do not use Pages.
+      Use 'callback-nav' if you are updating the URL in a callback, or a different
+      callback will respond to the new Location with updated content. This is
+      typical with multi-page apps that use Pages. This will allow for
+      navigating to a new page without refreshing the page.
       - `search` (String; optional): search in window.location - e.g., "?myargument=1"
   - name: LogoutButton
     args:
@@ -859,14 +924,16 @@ components:
       - `style` (Dict; optional): Style of the button
   - name: Markdown
     args:
+      - style
       - dangerously_allow_html
       - children
       - id
       - highlight_config
       - loading_state
+      - mathjax
       - className
       - dedent
-      - style
+      - link_target
     wild_args: []
     docstr: |-
       A Markdown component
@@ -874,7 +941,7 @@ components:
       GitHub Markdown spec. These component uses
       [react-markdown](https://rexxars.github.io/react-markdown/) under the hood.
       
-      - `children` (String | Array of Strings; optional): A markdown string (or array of strings) that adhreres to the CommonMark spec
+      - `children` (String | Array of Strings; optional): A markdown string (or array of strings) that adheres to the CommonMark spec
       - `id` (String; optional): The ID of this component, used to identify dash components
       in callbacks. The ID needs to be unique across all of the
       components in an app.
@@ -888,7 +955,9 @@ components:
       Both spaces and tab characters are removed, but only if they match;
       we will not convert tabs to spaces or vice versa.
       - `highlight_config` (lists containing elements theme   - `theme` ('dark', 'light'; optional): Color scheme; default 'light'; optional): Config options for syntax highlighting.
+      - `link_target` (String; optional): A string for the target attribute to use on links (such as "_blank")
       - `loading_state` (lists containing elements is_loading, prop_name, component_name   - `is_loading` (Bool; optional): Determines if the component is loading or not   - `prop_name` (String; optional): Holds which property is loading   - `component_name` (String; optional): Holds the name of the component that is loading; optional): Object that holds the loading state object coming from dash-renderer
+      - `mathjax` (Bool; optional): If true, loads mathjax v3 (tex-svg) into the page and use it in the markdown
       - `style` (Dict; optional): User-defined inline styles for the rendered Markdown
   - name: RadioItems
     args:
@@ -903,6 +972,7 @@ components:
       - style
       - value
       - id
+      - inline
       - persistence_type
       - className
     wild_args: []
@@ -917,6 +987,8 @@ components:
       in callbacks. The ID needs to be unique across all of the
       components in an app.
       - `className` (String; optional): The class of the container (div)
+      - `inline` (Bool; optional): Indicates whether the options labels should be displayed inline (true=horizontal)
+      or in a block (false=vertical).
       - `inputClassName` (String; optional): The class of the <input> radio element
       - `inputStyle` (Dict; optional): The style of the <input> radio element
       - `labelClassName` (String; optional): The class of the <label> that wraps the radio input
@@ -924,9 +996,11 @@ components:
       - `labelStyle` (Dict; optional): The style of the <label> that wraps the radio input
        and the option's label
       - `loading_state` (lists containing elements is_loading, prop_name, component_name   - `is_loading` (Bool; optional): Determines if the component is loading or not   - `prop_name` (String; optional): Holds which property is loading   - `component_name` (String; optional): Holds the name of the component that is loading; optional): Object that holds the loading state object coming from dash-renderer
-      - `options` (optional):An array of options. options has the following type: Array of lists containing elements label, value, disabled   - `label` (String; required): The radio item's label   - `value` (String; required): The value of the radio item. This value
+      - `options` (optional):An array of options, or inline dictionary of options. options has the following type: Array of String | Bools | Dict | Array of lists containing elements label, value, disabled, title   - `label` (a list of or a singular dash component, string or number; required): The option's label   - `value` (String | Bool; required): The value of the option. This value
       corresponds to the items specified in the
-      `value` property.   - `disabled` (Bool; optional): If true, this radio item is disabled and can't be clicked on.s
+      `value` property.   - `disabled` (Bool; optional): If true, this option is disabled and cannot be selected.   - `title` (String; optional): The HTML 'title' attribute for the option. Allows for
+      information on hover. For more information on this attribute,
+      see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/titles
       - `persisted_props` (Array of 'value's; optional): Properties whose user interactions will persist after refreshing the
       component or the page. Since only `value` is allowed this prop can
       normally be ignored.
@@ -941,7 +1015,7 @@ components:
       local: window.localStorage, data is kept after the browser quit.
       session: window.sessionStorage, data is cleared once the browser quit.
       - `style` (Dict; optional): The style of the container (div)
-      - `value` (String; optional): The currently selected value
+      - `value` (String | Bool; optional): The currently selected value
   - name: RangeSlider
     args:
       - marks
@@ -959,9 +1033,9 @@ components:
       - persistence
       - updatemode
       - value
-      - id
-      - tooltip
       - step
+      - tooltip
+      - id
       - verticalHeight
       - persistence_type
       - allowCross
@@ -1043,9 +1117,9 @@ components:
       - persistence
       - updatemode
       - value
-      - id
-      - tooltip
       - step
+      - tooltip
+      - id
       - verticalHeight
       - persistence_type
       - className

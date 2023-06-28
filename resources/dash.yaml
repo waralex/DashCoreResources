@@ -1,4 +1,4 @@
-version: 2.0.0
+version: 2.10.2
 build: 0
 embedded_components:
   - dash_core_components
@@ -9,121 +9,129 @@ deps:
     resources:
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/async-datepicker.js"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-datepicker.js"
         relative_package_path: "dcc/async-datepicker.js"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/async-dropdown.js"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-dropdown.js"
         relative_package_path: "dcc/async-dropdown.js"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/async-graph.js"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-graph.js"
         relative_package_path: "dcc/async-graph.js"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/async-highlight.js"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-highlight.js"
         relative_package_path: "dcc/async-highlight.js"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/async-markdown.js"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-markdown.js"
         relative_package_path: "dcc/async-markdown.js"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/async-slider.js"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-mathjax.js"
+        relative_package_path: "dcc/async-mathjax.js"
+      - async: true
+        type: js
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-slider.js"
         relative_package_path: "dcc/async-slider.js"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/async-upload.js"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-upload.js"
         relative_package_path: "dcc/async-upload.js"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/async-datepicker.js.map"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-datepicker.js.map"
         dynamic: true
         relative_package_path: "dcc/async-datepicker.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/async-dropdown.js.map"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-dropdown.js.map"
         dynamic: true
         relative_package_path: "dcc/async-dropdown.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/async-graph.js.map"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-graph.js.map"
         dynamic: true
         relative_package_path: "dcc/async-graph.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/async-highlight.js.map"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-highlight.js.map"
         dynamic: true
         relative_package_path: "dcc/async-highlight.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/async-markdown.js.map"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-markdown.js.map"
         dynamic: true
         relative_package_path: "dcc/async-markdown.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/async-slider.js.map"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-mathjax.js.map"
+        dynamic: true
+        relative_package_path: "dcc/async-mathjax.js.map"
+      - type: js
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-slider.js.map"
         dynamic: true
         relative_package_path: "dcc/async-slider.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/async-upload.js.map"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-upload.js.map"
         dynamic: true
         relative_package_path: "dcc/async-upload.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/dash_core_components.js"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/dash_core_components.js"
         relative_package_path: "dcc/dash_core_components.js"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/dash_core_components.js.map"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/dash_core_components.js.map"
         dynamic: true
         relative_package_path: "dcc/dash_core_components.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/dash_core_components-shared.js"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/dash_core_components-shared.js"
         relative_package_path: "dcc/dash_core_components-shared.js"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/dash_core_components-shared.js.map"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/dash_core_components-shared.js.map"
         dynamic: true
         relative_package_path: "dcc/dash_core_components-shared.js.map"
       - async: "eager"
         type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/plotly.min.js"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/plotly.min.js"
         relative_package_path: "dcc/plotly.min.js"
       - async: "lazy"
         type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/async-plotlyjs.js"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-plotlyjs.js"
         relative_package_path: "dcc/async-plotlyjs.js"
       - type: js
-        external_url: "https://unpkg.com/dash-core-components@2.0.0/dash_core_components/async-plotlyjs.js.map"
+        external_url: "https://unpkg.com/dash-core-components@2.10.0/dash_core_components/async-plotlyjs.js.map"
         dynamic: true
         relative_package_path: "dcc/async-plotlyjs.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-html-components@2.0.0/dash_html_components/dash_html_components.min.js"
+        external_url: "https://unpkg.com/dash-html-components@2.0.12/dash_html_components/dash_html_components.min.js"
         relative_package_path: "html/dash_html_components.min.js"
       - type: js
-        external_url: "https://unpkg.com/dash-html-components@2.0.0/dash_html_components/dash_html_components.min.js.map"
+        external_url: "https://unpkg.com/dash-html-components@2.0.12/dash_html_components/dash_html_components.min.js.map"
         dynamic: true
         relative_package_path: "html/dash_html_components.min.js.map"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-table@5.0.0/dash_table/async-export.js"
+        external_url: "https://unpkg.com/dash-table@5.2.5/dash_table/async-export.js"
         relative_package_path: "dash_table/async-export.js"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-table@5.0.0/dash_table/async-table.js"
+        external_url: "https://unpkg.com/dash-table@5.2.5/dash_table/async-table.js"
         relative_package_path: "dash_table/async-table.js"
       - async: true
         type: js
-        external_url: "https://unpkg.com/dash-table@5.0.0/dash_table/async-highlight.js"
+        external_url: "https://unpkg.com/dash-table@5.2.5/dash_table/async-highlight.js"
         relative_package_path: "dash_table/async-highlight.js"
       - type: js
-        external_url: "https://unpkg.com/dash-table@5.0.0/dash_table/async-export.js.map"
+        external_url: "https://unpkg.com/dash-table@5.2.5/dash_table/async-export.js.map"
         dynamic: true
         relative_package_path: "dash_table/async-export.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-table@5.0.0/dash_table/async-table.js.map"
+        external_url: "https://unpkg.com/dash-table@5.2.5/dash_table/async-table.js.map"
         dynamic: true
         relative_package_path: "dash_table/async-table.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-table@5.0.0/dash_table/async-highlight.js.map"
+        external_url: "https://unpkg.com/dash-table@5.2.5/dash_table/async-highlight.js.map"
         dynamic: true
         relative_package_path: "dash_table/async-highlight.js.map"
       - type: js
-        external_url: "https://unpkg.com/dash-table@5.0.0/dash_table/bundle.js"
+        external_url: "https://unpkg.com/dash-table@5.2.5/dash_table/bundle.js"
         relative_package_path: "dash_table/bundle.js"
       - type: js
-        external_url: "https://unpkg.com/dash-table@5.0.0/dash_table/bundle.js.map"
+        external_url: "https://unpkg.com/dash-table@5.2.5/dash_table/bundle.js.map"
         dynamic: true
         relative_package_path: "dash_table/bundle.js.map"
